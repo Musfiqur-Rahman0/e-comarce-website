@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 import "slick-carousel/slick/slick.css";
@@ -23,17 +23,23 @@ const Order = () => {
   const [selectedImage, setSelectedImage] = useState(image || products1);
 
   const [isActive, setIsActive] = useState(null);
-  const [massage, setMassage] = useState("");
+  const [message, setMessage] = useState("");
   const [selectedColor, setSelectedColor] = useState(null);
 
+  // Scroll to top on component mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const handleImageClick = (image) => {
-    setSelectedImage(image); // Update the main image
+    window.scrollTo(0, 0);
+    setSelectedImage(image);
   };
 
   const handleSizeSelection = (size) => setIsActive(size);
-  const handleFrom = (e) => {
+  const handleFormSubmit = (e) => {
     e.preventDefault();
-    setMassage("Item added to the cart!");
+    setMessage("Item added to the cart!");
   };
   const handleColorSelection = (color) => {
     setSelectedColor(color);
@@ -97,7 +103,7 @@ const Order = () => {
               <span className="text-xl font-bold">22.99$</span>
             </p>
           </div>
-          <form className="mt-6">
+          <form className="mt-6" onSubmit={handleFormSubmit}>
             {/* Color Options */}
             <div>
               <h3 className="text-slate-700 text-2xl font-bold mb-2">
@@ -144,7 +150,10 @@ const Order = () => {
                         backgroundColor: "blue",
                         color: "white",
                       }}
-                      whileHover={{ scale: 1.05, backgroundColor: "lightblue" }}
+                      whileHover={{
+                        scale: 1.05,
+                        backgroundColor: "lightblue",
+                      }}
                       transition={{ duration: 0.3 }}
                       onClick={() => handleSizeSelection(size)}
                       className="w-full h-full rounded-lg text-center flex items-center justify-center"
@@ -158,16 +167,15 @@ const Order = () => {
             {/* Add to Cart Button */}
             <div className="pt-10">
               <button
-                onClick={handleFrom}
                 className="w-full bg-blue-600 py-4 rounded-lg text-white hover:bg-blue-700"
                 type="submit"
               >
                 Add to cart
               </button>
-              {massage && (
+              {message && (
                 <div className="mt-4 flex justify-center gap-2 items-center py-5 text-2xl text-green-600">
                   <AiOutlineCheckCircle className="text-2xl " />
-                  <span>{massage}</span>
+                  <span>{message}</span>
                 </div>
               )}
             </div>
@@ -212,7 +220,7 @@ const Order = () => {
         </div>
       </div>
 
-      <RelatedProducts />
+      <RelatedProducts onProductClick={handleImageClick} />
       <Footer />
     </div>
   );

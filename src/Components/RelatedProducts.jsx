@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import { PRODUCTS } from "../consents";
 
@@ -37,16 +37,7 @@ const settings = {
   ],
 };
 
-const RelatedProducts = () => {
-  const navigate = useNavigate();
-
-  const handleProductClick = (data) => {
-    window.scrollTo(0, 0); // Scroll to the top
-    navigate("/order", {
-      state: { image: data.image, title: data.title },
-    });
-  };
-
+const RelatedProducts = ({ onProductClick }) => {
   return (
     <div>
       {/* Related Products Section */}
@@ -61,8 +52,8 @@ const RelatedProducts = () => {
             <div key={index} className="p-4">
               <Link
                 to="/order"
-                state={{ image: data.image, title: data.title }}
-                onClick={() => handleProductClick(data)}
+                onClick={() => onProductClick(data.image)} // Correct usage
+                className="focus:outline-none"
               >
                 <img
                   className="rounded-lg"
@@ -102,8 +93,8 @@ const RelatedProducts = () => {
             <div key={index} className="p-4">
               <Link
                 to="/order"
-                state={{ image: data.image, title: data.title }}
-                onClick={() => handleProductClick(data)}
+                onClick={() => onProductClick(data.image)} // Correct usage
+                className="focus:outline-none"
               >
                 <img
                   className="rounded-lg"

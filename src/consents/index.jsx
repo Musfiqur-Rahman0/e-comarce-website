@@ -28,49 +28,49 @@ export const PRODUCTS = [
   {
     id: 1,
     image: product1,
-    title: "Spaghetti",
+    title: "Elegance Veil",
     description: "Creamy pasta with bacon and cheese",
   },
   {
     id: 2,
     image: product2,
-    title: "Chicken ",
+    title: "Serene Wraps",
     description: "Indian curry with tender chicken in spicy sauce",
   },
   {
     id: 3,
     image: product3,
-    title: "Caprese ",
+    title: "Luxe Hijab ",
     description: "Fresh tomatoes, mozzarella, and basil with balsamic glaze",
   },
   {
     id: 4,
     image: product4,
-    title: "Sushi",
+    title: "Modesty Chic",
     description: "Assorted seafood and vegetables wrapped in seaweed and rice",
   },
   {
     id: 5,
     image: product5,
-    title: "Chocolate",
+    title: "Silk Shades",
     description: "Decadent chocolate cake with a gooey center",
   },
   {
     id: 6,
     image: product6,
-    title: "Greek ",
+    title: "Graceful Drapes",
     description: "Crisp lettuce, olives, feta cheese, and tangy dressing",
   },
   {
     id: 7,
     image: product7,
-    title: "Pad Thai",
+    title: "Opulent Veils",
     description: "Stir-fried rice noodles with shrimp, tofu, and peanuts",
   },
   {
     id: 8,
     image: product8,
-    title: "Peking ",
+    title: "Velvet Veil",
     description: "Crispy duck with pancakes, cucumber, and hoisin sauce",
   },
   {
@@ -82,7 +82,7 @@ export const PRODUCTS = [
   {
     id: 10,
     image: product10,
-    title: "Tiramisu",
+    title: "Modesty Chic",
     description:
       "Italian dessert with layers of coffee-soaked biscuits and mascarpone",
   },
@@ -96,7 +96,7 @@ export const PRODUCTS = [
   {
     id: 12,
     image: product1,
-    title: "Tiramisu",
+    title: "Royal Wraps",
     description:
       "Italian dessert with layers of coffee-soaked biscuits and mascarpone",
   },
